@@ -1,18 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
-
+import { StyleSheet, View, Image } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-   <Text>
-    Hello world
-   </Text>
   {/* restaurant item*/}
 
-  {/* <View style={styles.restaurantContainer}>
-        <Image source={{ uri:'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg'}}
-        style={styles.image}/>
-  </View> */}
+
+
+    
+
+     <HomeScreen/>
+      <StatusBar style='auto'/>
     </View>
   );
 }
@@ -23,13 +22,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    padding:10,
   },
-  restaurantContainer:{
-    width:"100%",
-
-  },
-  image:{
-    width:"100%",
-    aspectRatio:5/3,
-  }
+  
 });

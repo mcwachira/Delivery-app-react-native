@@ -5,7 +5,7 @@ const MenuListItem = ({dish}) => {
     const {name, description, price , image} = dish
     return (
 
-        <View style={styles. Container} key={name}>
+        <View style={styles.Container} key={name}>
          
            
 
@@ -25,8 +25,7 @@ const MenuListItem = ({dish}) => {
 
 {image && <Image source={{uri:image}} style={styles.image}/>}
                   
-             
-
+   
         </View>
     )
 

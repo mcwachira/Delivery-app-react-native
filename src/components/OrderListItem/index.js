@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, Image}from 'react-native'
+import { StyleSheet, Text, View, Image , Pressable}from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 
 const OrderListItem = ({order}) => {
+  const navigation = useNavigation()
   return (
-    <View style={styles.page}>
+    <Pressable onPress={() => navigation.navigate('Order', {id:order.id})} style={styles.page}>
     <Image source={{uri:order.Restaurant.image}} style={styles.image} />
     <View>
         <Text style={styles.name}>
@@ -18,7 +20,7 @@ const OrderListItem = ({order}) => {
 
     </View>
 
-    </View>
+    </Pressable>
   )
 }
 

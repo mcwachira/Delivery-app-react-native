@@ -1,14 +1,18 @@
 import {View, Text, Image, FlatList} from 'react-native'
 import restaurants from '../../../assets/data/restaurants.json'
-import MenuListItem from '../../components/MenuListItem';
+import DishListItem from '../../components/DishListItem';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from './styles';
 import RestaurantHeader from './Header';
-//const restaurant = restaurants.map((restaurantData) =>restaurantData )
+import { useRoute, useNavigation } from '@react-navigation/native';
 const restaurant = restaurants[0]
 const RestaurantDetailsPage = () =>{
+    const route = useRoute()
+    const navigation = useNavigation()
+    const id = route.params?.id
+    // console.warn(id);
 
-    const { id, name, deliveryFee, minDeliveryTime, maxDeliveryTime, rating, image, dishes } = restaurant
+    const {name, deliveryFee, minDeliveryTime, maxDeliveryTime, rating, image, dishes } = restaurant
 
 
     return (
@@ -19,10 +23,14 @@ const RestaurantDetailsPage = () =>{
 
                 <FlatList
                     ListHeaderComponent={() => <RestaurantHeader restaurant={restaurant}/>} 
-                 data={dishes} renderItem={({item}) => <MenuListItem dish={item} />  }/>
+                 data={dishes} renderItem={({item}) => <DishListItem dish={item} />  }
+                    keyExtractor={(item) => item.name}
+                 />
                
 
-                <Ionicons name='arrow-back-circle' size={45} color='white' style={styles.iconContainer} />
+                <Ionicons 
+                onPress={() => navigation.goBack()}
+                name='arrow-back-circle' size={45} color='white' style={styles.iconContainer} />
 
             </View>
 

@@ -4,7 +4,7 @@ import styles from './styles'
 import orders from '../../../assets/data/orders.json'
 import restaurants from '../../../assets/data/restaurants.json'
 import OrderHeader from './Header'
-import MenuListItem from '../../components/MenuListItem'
+import DishListItem from '../../components/DishListItem'
 import BasketDishItem from '../../components/BasketDishItem'
 
 const order = orders[0]

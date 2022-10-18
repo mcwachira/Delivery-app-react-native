@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 const RestaurantItem = ({restaurant}) => {
-    console.log(restaurant)
+    // console.log(restaurant)
  
         const { id, name, deliveryFee, minDeliveryTime, maxDeliveryTime, rating, image } = restaurant
        

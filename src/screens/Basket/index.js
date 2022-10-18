@@ -1,26 +1,11 @@
 import { useState } from 'react';
 import {Text, View, StyleSheet, FlatList} from 'react-native'
+import BasketDishItem from '../../components/BasketDishItem';
 import restaurants from '../../../assets/data/restaurants.json'
 import { AntDesign } from '@expo/vector-icons';
 const restaurant = restaurants[0]
 
-const BasketList = ({ basketItem }) => {
-    const {name, price} = basketItem
 
-    return(
-        <View style={styles.row}>
-            <View style={styles.quantityContainer}>
-                <Text>
-                    1
-                </Text>
-            </View>
-            <Text style={{ fontWeight: '600' }}>{name}</Text>
-            <Text style={{ marginLeft: 'auto' }}>$ {price}</Text>
-
-        </View>
-    )
-   
-}
 
 const Basket = () => {
  
@@ -37,7 +22,7 @@ const totalPrice = () => (dish.price*quantity).toFixed(2)
             </Text>
           
 
-            <FlatList data={restaurant.dishes}  renderItem={({item}) => <BasketList basketItem={item}/>}/>
+            <FlatList data={restaurant.dishes}  renderItem={({item}) => <BasketDishItem basketItem={item}/>}/>
         
       <View style={styles.separator}/>
     

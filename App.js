@@ -5,16 +5,19 @@ import RestaurantDetailsPage from './src/screens/RestaurantDetailsScreen';
 import MenuDishDetails from './src/screens/MenuDishDetails';
 // import Basket from './src/screens/Basket';
 import OrderScreen from './src/screens/OrdersScreen';
+import OrderDetails from './src/screens/OrderDetails';
+import Basket from './src/screens/Basket';
 export default function App() {
   return (
     <View style={styles.container}>
   {/* restaurant item*/}
 
 
-<OrderScreen/>
+<OrderDetails/>
 
 {/* <MenuDishDetails/> */}
     
+    {/* <Basket/> */}
 {/* <RestaurantDetailsPage/> */}
      {/* <HomeScreen/> */}
       <StatusBar style='auto'/>
@@ -32,3 +35,5 @@ const styles = StyleSheet.create({
   },
   
 });
+
+<OrderDetails />

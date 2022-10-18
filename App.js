@@ -3,14 +3,15 @@ import { StyleSheet, View, Image } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import RestaurantDetailsPage from './src/screens/RestaurantDetailsScreen';
 import MenuDishDetails from './src/screens/MenuDishDetails';
-import Basket from './src/screens/Basket';
+// import Basket from './src/screens/Basket';
+import OrderScreen from './src/screens/OrdersScreen';
 export default function App() {
   return (
     <View style={styles.container}>
   {/* restaurant item*/}
 
 
-<Basket/>
+<OrderScreen/>
 
 {/* <MenuDishDetails/> */}
     

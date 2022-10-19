@@ -2,7 +2,7 @@ import {View, Image, Text, StyleSheet ,Pressable} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const DishListItem = ({dish}) => {
-    console.warn(dish.id)
+  
 
     const navigation = useNavigation()
     const {name, description, price , image, id } = dish

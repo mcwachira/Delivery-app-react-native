@@ -1,14 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Text, View, StyleSheet, Pressable} from 'react-native'
-import restaurants from '../../../assets/data/restaurants.json'
+import { DataStore } from 'aws-amplify';
+import { Dish } from '../../models';
 import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-const dish = restaurants[0].dishes[0]
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { ActivityIndicator } from 'react-native-paper';
+
 
 const DishDetailsScreen = () => {
 
-    const navigation = useNavigation()
+    const [dish, setDish] = useState(null)
     const [quantity, setQuantity] = useState(1)
+
+    const navigation = useNavigation()
+    const route = useRoute()
+    const id = route.params?.id
+    
+
+
+    const fetchDishDetails = async () => {
+        const results = await DataStore.query(Dish,id)
+        setDish(results)
+    }
+
+    useEffect(() => {
+        if(id){
+            fetchDishDetails()
+        }
+
+    }, [id])
+    if (!dish) {
+        return <ActivityIndicator size='large' color='gray' />
+    }
+    // console.warn(dish)
     const IncreaseQuantity = () => setQuantity(quantity +1 )
 const DecreaseQuantity = () => quantity>1&& setQuantity(quantity - 1)
 
@@ -16,10 +40,10 @@ const totalPrice = () => (dish.price*quantity).toFixed(2)
     return(
         <View style={styles.page}>
             <Text style={styles.name}> 
-            {dish.name}
+            {dish?.name}
             </Text>
             <Text style={styles.description}>
-                {dish.description}
+                {dish?.description}
             </Text>
       <View style={styles.separator}/>
       <View style={styles.row}>

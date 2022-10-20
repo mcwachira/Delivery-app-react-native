@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { BasketContext } from '../../context/BasketContext';
 import {Text, View, StyleSheet, FlatList} from 'react-native'
 import BasketDishItem from '../../components/BasketDishItem';
 import restaurants from '../../../assets/data/restaurants.json'
@@ -9,27 +10,37 @@ const restaurant = restaurants[0]
 
 const Basket = () => {
  
+    const {restaurant, basketDishes, totalPrice} = useContext(BasketContext)
 
-const totalPrice = () => (dish.price*quantity).toFixed(2)
+
     return(
         <View style={styles.page}>
             <Text style={styles.name}> 
                 {restaurant.name}
             </Text>
+
+           
             <Text style={{fontWeight:'bold', marginTop:20, fontSize:19}}>
           
           Your Items
             </Text>
           
 
-            <FlatList data={restaurant.dishes}  renderItem={({item}) => <BasketDishItem basketItem={item}/>}/>
+            <FlatList data={basketDishes}  renderItem={({item}) => <BasketDishItem basketItem={item}/>}/>
+
+            {/* <View>
+                <Text style={{ fontWeight: '600' }}>Total </Text>
+                <Text style={{ marginLeft: 'auto' }}>${totalPrice} </Text>
+
+            </View>
+            */}
         
       <View style={styles.separator}/>
     
       <View style={styles.button}>
         <Text style={styles.buttonText}>
 
-                  Create Order
+                    Create Order  &#8226; ${totalPrice.toFixed(2)}
         </Text>
       </View>
         </View>

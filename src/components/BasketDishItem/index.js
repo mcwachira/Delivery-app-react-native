@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native'
+import { BasketDish } from '../../models';
 
 const BasketDishItem = ({ basketItem }) => {
     const { name, price } = basketItem
@@ -8,13 +9,14 @@ const BasketDishItem = ({ basketItem }) => {
         <View style={styles.row}>
             <View style={styles.quantityContainer}>
                 <Text>
-                    1
+                    {basketItem.quantity}
                 </Text>
             </View>
-            <Text style={{ fontWeight: '600' }}>{name}</Text>
-            <Text style={{ marginLeft: 'auto' }}>$ {price}</Text>
+            <Text style={{ fontWeight: '600' }}>{basketItem.Dish.name}</Text>
+            <Text style={{ marginLeft: 'auto' }}>$ {basketItem.Dish.price}</Text>
 
         </View>
+        
     )
 
 }

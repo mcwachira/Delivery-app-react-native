@@ -7,7 +7,7 @@ const RestaurantItem = ({restaurant}) => {
     // console.log(restaurant)
     const navigation = useNavigation()
     const onPress = () => {
-        navigation.navigate('Restaurant', {id:restaurant.id})
+        navigation.navigate('Restaurant', {id:restaurant?.id})
     }
  
         const { id, name, deliveryFee, minDeliveryTime, maxDeliveryTime, rating, image } = restaurant

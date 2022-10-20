@@ -12,6 +12,7 @@ import { Foundation, FontAwesome5, MaterialIcons } from "@expo/vector-icons"
 import DishListItem from "../components/DishListItem";
 import ProfileScreen from "../screens/ProfileScreen";
 
+
 const Stack = createNativeStackNavigator()
 
 const RootNavigator = () => {

@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {Text, View, StyleSheet, Pressable} from 'react-native'
 import { DataStore } from 'aws-amplify';
 import { Dish } from '../../models';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { ActivityIndicator } from 'react-native-paper';
+import { BasketContext } from '../../context/BasketContext';
 
 
 const DishDetailsScreen = () => {
@@ -17,6 +18,12 @@ const DishDetailsScreen = () => {
     const id = route.params?.id
     
 
+    const {addDishToBasket} = useContext(BasketContext)
+
+    const onAddToBasket = async() => {
+       await  addDishToBasket(dish, quantity)
+       navigation.goBack()
+    }
 
     const fetchDishDetails = async () => {
         const results = await DataStore.query(Dish,id)
@@ -51,7 +58,7 @@ const totalPrice = () => (dish.price*quantity).toFixed(2)
                 <Text style={styles.quantity}>{quantity}</Text>
                 <AntDesign name="pluscircleo" size={60} color="black" onPress={IncreaseQuantity} />
       </View>
-      <Pressable onPress={() => navigation.navigate('Basket')} style={styles.button}>
+      <Pressable onPress={() => onAddToBasket()} style={styles.button}>
         <Text style={styles.buttonText}>
 
                     Add {quantity} to basket  &#8226; ${totalPrice()}

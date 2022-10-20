@@ -1,5 +1,4 @@
 import { View ,FlatList, StyleSheet } from 'react-native'
-import React from 'react'
 import OrderListItem from '../../components/OrderListItem/index'
 import orders from '../../../assets/data/orders.json'
 

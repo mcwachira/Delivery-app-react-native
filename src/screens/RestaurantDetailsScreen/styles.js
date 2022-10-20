@@ -44,6 +44,19 @@ const styles = StyleSheet.create({
        
     },
 
+    button: {
+        backgroundColor: 'black',
+        marginTop: 'auto',
+        padding: 20,
+        alignItems: 'center',
+        // borderRadius: 20
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 20
+    }
+
 
 });
 

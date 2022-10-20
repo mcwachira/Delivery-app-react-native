@@ -30,7 +30,7 @@ const ProfileScreen = () => {
     const updateUser = async () => {
      const user = await DataStore.save(
       User.copyOf(dbUser, (updated) => {
-        updated.name=name,
+        updated.name =  name,
         updated.address = address,
           updated.lat = parseFloat(lat),
           updated.lng = parseFloat(lng)
